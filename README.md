@@ -3,8 +3,7 @@
 
 ## Programming Languages
 * Java
-* Python 
-* XML
+* Python
 
 ## Contributer Profile
 <!-- Tables -->
