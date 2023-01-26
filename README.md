@@ -7,7 +7,7 @@
 
 ## Contributer Profile
 <!-- Tables -->
-| NAME      | Email                |School                           |
+| NAME      | Email                |Institution                      |
 | --------- | -------------------- |---------------------------------|
 | Wonho Lim | wonholim02@gmail.com | Georgia Institute of Technology |
 
