@@ -4,7 +4,7 @@
 ## Contributer Information
 | NAME      | Email                |School                           |
 | --------- | -------------------- |---------------------------------|
-| Wonho Lim | wonholim02@gmail.com | Georgia Institute of Technology |
+| Wonho Lim | wlim49@gatech.edu    | Georgia Institute of Technology |
 
 ## Google Play Developer Profile
 | NAME      | URL                                                           |       
