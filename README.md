@@ -1,5 +1,5 @@
 ![](https://placehold.it/950x90/FF4500/fff?text=Welcome!)
-# Data Structures & Algorithms
+# Data Structures and Algorithms
 
 ## Contributer Information
 | NAME      | Email                |School                           |
