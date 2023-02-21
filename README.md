@@ -1,9 +1,9 @@
 # Data Structures and Algorithms
 
 ## Contributer Information
-| NAME      | Email                |School                           |
-| --------- | -------------------- |---------------------------------|
-| Wonho Lim | wlim49@gatech.edu    | Georgia Institute of Technology |
+| NAME      | Email                |School                            |
+| --------- | -------------------- |----------------------------------|
+| Wonho Lim | wlim49@gatech.edu    | Georgia Institute of Technology  |
 
 ## Google Play Developer Profile
 | NAME      | URL                                                           |       
