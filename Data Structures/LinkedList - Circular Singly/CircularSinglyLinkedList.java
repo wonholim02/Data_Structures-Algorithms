@@ -1,16 +1,4 @@
 import java.util.NoSuchElementException;
-/**
- * Your implementation of a CircularSinglyLinkedList without a tail pointer.
- *
- * @author Wonho Lim
- * @version 1.0
- * @userid wlim49
- * @GTID 903724333
- *
- * Collaborators: Done individually.
- *
- * Resources: Done individually.
- */
 public class CircularSinglyLinkedList<T> {
 
     /*
