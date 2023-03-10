@@ -1,5 +1,5 @@
 # Data Structures and Algorithms
- 
+
 ## Contributer Information
 | NAME      | Email                |School                            |
 | --------- | -------------------- |----------------------------------|
