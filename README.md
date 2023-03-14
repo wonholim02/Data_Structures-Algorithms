@@ -13,7 +13,6 @@
 ## Programming Languages
 * Java
 * Python
-* C
 
 ## Directories
 * Data Structures
