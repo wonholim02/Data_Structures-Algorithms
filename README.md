@@ -1,4 +1,4 @@
-# Data Structures and Algorithms 
+# Data Structures and Algorithms
 
 ## Contributer Information
 | NAME      | Email                |School                            |
