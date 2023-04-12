@@ -5,7 +5,7 @@
 | --------- | -------------------- |----------------------------------|
 | Wonho Lim | wlim49@gatech.edu    | Georgia Institute of Technology  |
 
-## Programming Languages
+## Programming Languages 
 * Java
 * Python
 
