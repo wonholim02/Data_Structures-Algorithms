@@ -18,26 +18,26 @@ public class GraphAlgorithms {
      * @throws IllegalArgumentException if any input is null, or if start
      *                                  doesn't exist in the graph
      */
-    public static <T> List<Vertex<T>> breadthFirstSearch(Vertex<T> start, Graph<T> graph) {
+    public static <T> List<Vertex<T>> bfs(Vertex<T> start, Graph<T> graph) {
         if (start == null || graph == null) {
-            throw new IllegalArgumentException("Input is invalid");
+            throw new IllegalArgumentException("Input is invalid - NULL");
         }
         if (!graph.getAdjList().containsKey(start)) {
-            throw new IllegalArgumentException("Vertex does not exist");
+            throw new IllegalArgumentException("Vertex does not exist in this graph");
         }
-        List<Vertex<T>> visitedList = new ArrayList<>();
+        List<Vertex<T>> list = new ArrayList<>();
         Queue<Vertex<T>> queue = new LinkedList<>();
         Map<Vertex<T>, List<VertexDistance<T>>> adjList = graph.getAdjList();
-        visitedList.add(start);
+        list.add(start);
         queue.add(start);
         while (!queue.isEmpty()) {
-            Vertex<T> vertex = queue.remove();
-            List<VertexDistance<T>> vertexDistances = adjList.get(vertex);
-            for (VertexDistance<T> vertaxDistance : vertexDistances) {
-                Vertex<T> w = vertaxDistance.getVertex();
-                if (!visitedList.contains(w)) {
+            Vertex<T> vtx = queue.remove();
+            List<VertexDistance<T>> vertexDistance = adjList.get(vtx);
+            for (VertexDistance<T> v : vertexDistance) {
+                Vertex<T> w = v.getVertex();
+                if (!list.contains(w)) {
                     queue.add(w);
-                    visitedList.add(w);
+                    list.add(w);
                 }
             }
         }
@@ -52,18 +52,18 @@ public class GraphAlgorithms {
      * @throws IllegalArgumentException if any input is null, or if start
      *                                  doesn't exist in the graph
      */
-    public static <T> List<Vertex<T>> depthFirstSearch(Vertex<T> start, Graph<T> graph) {
+    public static <T> List<Vertex<T>> dfs(Vertex<T> start, Graph<T> graph) {
         if (start == null || graph == null) {
-            throw new IllegalArgumentException("Input is invalid");
+            throw new IllegalArgumentException("Input is invalid - NULL");
         }
         if (!graph.getAdjList().containsKey(start)) {
-            throw new IllegalArgumentException("Vertex does not exist");
+            throw new IllegalArgumentException("Vertex does not exist in this graph");
         }
-        List<Vertex<T>> visitList = new ArrayList<>();
-        Set<Vertex<T>> visitedSet = new HashSet<>();
         Map<Vertex<T>, List<VertexDistance<T>>> adjList = graph.getAdjList();
-        depthFirstSearch(start, adjList, list, visitedSet);
-        return visitList;
+        List<Vertex<T>> list = new ArrayList<>();
+        Set<Vertex<T>> visitedSet = new HashSet<>();
+        dfs(start, adjList, list, visitedSet);
+        return list;
     }
 
     /**
@@ -74,17 +74,17 @@ public class GraphAlgorithms {
      * @param visitedSet set of visited vertices
      * @param <T> generic type
      */
-    private static <T> void depthFirstSearch(Vertex<T> start,
+    private static <T> void dfs(Vertex<T> start,
                                 Map<Vertex<T>, List<VertexDistance<T>>> adjacentList,
-                                List<Vertex<T>> visitList,
+                                List<Vertex<T>> list,
                                 Set<Vertex<T>> visitedSet) {
         if (!visitedSet.contains(start)) {
-            visitList.add(start);
             visitedSet.add(start);
+            list.add(start);
             List<VertexDistance<T>> vertexDistances = adjacentList.get(start);
             for (VertexDistance<T> vertexDistance: vertexDistances) {
                 Vertex<T> v = vertexDistance.getVertex();
-                depthFirstSearch(v, adjacentList, visitList, visitedSet);
+                dfs(v, adjacentList, list, visitedSet);
             }
         }
     }
@@ -98,17 +98,17 @@ public class GraphAlgorithms {
      * @throws IllegalArgumentException if any input is null, or if start
      *                                  doesn't exist in the graph.
      */
-    public static <T> Map<Vertex<T>, Integer> dijkstrasAlgorithm(Vertex<T> start,
+    public static <T> Map<Vertex<T>, Integer> dijkstras(Vertex<T> start,
                                                         Graph<T> graph) {
         if (start == null || graph == null) {
-            throw new IllegalArgumentException("Input is invalid");
+            throw new IllegalArgumentException("Input is invalid - NULL");
         }
         if (!graph.getAdjList().containsKey(start)) {
-            throw new IllegalArgumentException("Vertex does not exist");
+            throw new IllegalArgumentException("Vertex does not exist in this graph");
         }
+        PriorityQueue<VertexDistance<T>> pq = new PriorityQueue<>();
         Set<Vertex<T>> visited = new HashSet<>();
         Map<Vertex<T>, Integer> map = new HashMap<>();
-        PriorityQueue<VertexDistance<T>> pq = new PriorityQueue<>();
         Map<Vertex<T>, List<VertexDistance<T>>> adjList = graph.getAdjList();
         for (Vertex<T> vertex : adjList.keySet()) {
             if (start.equals(vertex)) {
@@ -125,9 +125,9 @@ public class GraphAlgorithms {
             List<VertexDistance<T>> vds = graph.getAdjList().get(vertex);
             visited.add(vertex);
             for (VertexDistance<T> v2 : vds) {
-                Vertex<T> vertex2 = v2.getVertex();
                 int d1 = v1.getDistance();
                 int d2 = v2.getDistance();
+                Vertex<T> vertex2 = v2.getVertex();
                 if (map.get(vertex2) > (d1 + d2)) {
                     map.put(v2.getVertex(), d1 + d2);
                     VertexDistance<T> v3 = new VertexDistance<>(v2.getVertex(), d1 + d2);
@@ -144,14 +144,14 @@ public class GraphAlgorithms {
      * @return the MST of the graph or null if there is no valid MST
      * @throws IllegalArgumentException if any input is null
      */
-    public static <T> Set<Edge<T>> kruskalsAlgorithm(Graph<T> graph) {
+    public static <T> Set<Edge<T>> kruskals(Graph<T> graph) {
         if (graph == null) {
             throw new IllegalArgumentException("Input is invalid");
         }
         Set<Edge<T>> mst = new HashSet<>();
-        PriorityQueue<Edge<T>> pq = new PriorityQueue<>(graph.getEdges());
         DisjointSet<Vertex<T>> ds = new DisjointSet<>();
-        int i = graph.getVertices().size();
+        PriorityQueue<Edge<T>> pq = new PriorityQueue<>(graph.getEdges());
+        int size = graph.getVertices().size();
         while (!pq.isEmpty()) {
             Edge<T> uv = pq.remove();
             Vertex<T> u = uv.getU();
@@ -164,11 +164,11 @@ public class GraphAlgorithms {
                 mst.add(vu);
                 ds.union(u, v);
             }
-            if (mst.size() >= (i - 1) * 2) {
+            if (mst.size() >= (size - 1) * 2) {
                 break;
             }
         }
-        if (mst.size() == (i - 1) * 2) {
+        if (mst.size() == (size - 1) * 2) {
             return mst;
         } else {
             return null;
