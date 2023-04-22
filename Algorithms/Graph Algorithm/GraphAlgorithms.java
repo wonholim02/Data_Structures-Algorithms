@@ -15,8 +15,7 @@ public class GraphAlgorithms {
      * @param start the vertex to begin the bfs on
      * @param graph the graph to search through
      * @return list of vertices in visited order
-     * @throws IllegalArgumentException if any input is null, or if start
-     *                                  doesn't exist in the graph
+     * @throws IllegalArgumentException if any input is null, or if start doesn't exist in the graph
      */
     public static <T> List<Vertex<T>> bfs(Vertex<T> start, Graph<T> graph) {
         if (start == null || graph == null) {
@@ -49,8 +48,7 @@ public class GraphAlgorithms {
      * @param start the vertex to begin the dfs on
      * @param graph the graph to search through
      * @return list of vertices in visited order
-     * @throws IllegalArgumentException if any input is null, or if start
-     *                                  doesn't exist in the graph
+     * @throws IllegalArgumentException if any input is null, or if start doesn't exist in the graph
      */
     public static <T> List<Vertex<T>> dfs(Vertex<T> start, Graph<T> graph) {
         if (start == null || graph == null) {
@@ -95,8 +93,7 @@ public class GraphAlgorithms {
      * @param graph the graph we are applying Dijkstra's to
      * @return a map of the shortest distances from start to every
      * other node in the graph
-     * @throws IllegalArgumentException if any input is null, or if start
-     *                                  doesn't exist in the graph.
+     * @throws IllegalArgumentException if any input is null, or if start doesn't exist in the graph.
      */
     public static <T> Map<Vertex<T>, Integer> dijkstras(Vertex<T> start,
                                                         Graph<T> graph) {
