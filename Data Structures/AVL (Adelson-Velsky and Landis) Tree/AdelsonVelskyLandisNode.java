@@ -1,4 +1,4 @@
-public class AVLNode<T extends Comparable<? super T>> {
+public class AdelsonVelskyLandisNode<T extends Comparable<? super T>> {
 
     private T data;
     private AVLNode<T> left;
