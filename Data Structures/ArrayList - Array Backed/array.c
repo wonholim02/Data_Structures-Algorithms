@@ -1,5 +1,5 @@
 #include <stddef.h>
-#include "arrOps.h"
+#include "array.h"
 
 size_t my_strlen(const char *s)
 {
