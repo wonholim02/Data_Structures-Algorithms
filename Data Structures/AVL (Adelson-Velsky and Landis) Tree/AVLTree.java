@@ -1,7 +1,7 @@
 import java.util.Collection;
 import java.util.NoSuchElementException;
 
-public class AdelsonVelskyLandisTree<T extends Comparable<? super T>> {
+public class AVLTree<T extends Comparable<? super T>> {
 
     private AVLNode<T> root;
     private int size;
