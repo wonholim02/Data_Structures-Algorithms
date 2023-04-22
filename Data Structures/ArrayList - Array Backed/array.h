@@ -1,5 +1,5 @@
-#ifndef ARROPS_H
-#define ARROPS_H
+#ifndef ARRAY_H
+#define ARRAY_H
 
 
 #include <stddef.h>
