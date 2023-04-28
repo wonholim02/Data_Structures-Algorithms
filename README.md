@@ -7,7 +7,7 @@
 
 ## Programming Languages 
 * Java
-* Python
+* Python 
 
 ## Directories
 * Data Structures
